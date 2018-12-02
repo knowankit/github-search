@@ -1,0 +1,35 @@
+This web app uses Flask Framework of python
+
+package required to run this
+
+1>Flask
+2>requests
+
+Software used-
+
+1>Pycharm community edition
+2>web browser
+
+Additional cdn include to make it look better-
+
+1> Bootstrap
+2>Font awesome
+3> Google Fonts
+
+Steps which I followed to do this assignment--
+
+1> First I have created a basic html template using bootstrap-4,html5,css3. It consist of one simple form which will be used by the user enter the data.
+
+2> Second I have created applicationStart.py where main logic resides.I have documented the code for most of the part in
+py file. I have created two method or routes. If the user first lands on the page then index("/") route will be executed
+after he/she clicks the search then search("/search") route will be triggered. 
+
+3>Logic=>
+Here the input data will be passed to github api in the form of url and the url will return json like file.This data will be stored and will be converted to json. Here I am running loop to fetch specific details of repo and appending it to respective list array.Finally i will zip all 5 arrays in to one for easy rendering on template.Then after I pass the valaue to home i.e template.html .There I check if value exists in the variable if yes then load all the repo ; else do
+nothing
+
+
+SO this is the explanation of my code.
+
+I you want to modify the display of repo in ascending or descending of author-date then you just need to change the 
+url value like order=desc or order=asc.  

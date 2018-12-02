@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Github Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static',filename='stylesheet.css') }}" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <style type="text/css">
+    .github{
+
+        font-family: 'Raleway', sans-serif;
+    }
+    </style>
+</head>
+<body>
+
+
+              <div class="container  ">
+        <div class="row logo justify-content-center mt-5 mb-5 pt-5">
+        <img src="static/Octocat.png" class="img-responsive" height="200" width="220">
+         </div>
+
+        <div class="row justify-content-center ">
+
+            <form action="{{ url_for('search') }}" method="post">
+                <div class="form-group text-center ">
+                    <input type="text" class="form-contol form-control-lg "
+                           name="searchBox" placeholder="Enter Repository Name " required><br>
+                    <button type="submit" class="btn btn-warning btn-lg btn-block mt-2">Search</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+    <div class="container mt-5 github mx-auto">
+
+
+    {% if complete_data %}
+
+        {% for data  in complete_data %}
+        <div class="card" style="width: 36rem;margin-top:10px;margin-left:auto;margin-right:auto;">
+            <div class="card-body">
+
+                <div class=" d-flex flex-row justify-content-center mt-4">
+
+                    <div class="avatar"><img src={{data[1]}} height="100" width="100"> </div>
+                    <div class="repo-details  ml-4 text-right">
+                       <b>Name: </b>{{data[0]}}<br>
+                        <b>Date Created: </b>{{data[2]}}<br>
+
+
+                        <b>Last Commit: </b>{{data[3]}}<br>
+                           <a href={{data[4]}} class="btn btn-primary" target="_blank"><i class="fa fa-github-alt" aria-hidden="true">
+
+                        </i> Github</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    {% endif%}
+    </div>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+</body>
+</html>
